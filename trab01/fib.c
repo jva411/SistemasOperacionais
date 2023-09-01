@@ -13,7 +13,7 @@ void fib(int m, int n) {
         if (i < n) {
             printf("%d,", fib);
         } else {
-            printf("\n");
+            printf("%d\n", fib);
         }
     }
 }
@@ -41,7 +41,6 @@ int main(int argc, char *argv[]) {
     }
 
     fib(m, n);
-    printf("\n");
 
     return 0;
 }
