@@ -1,26 +1,19 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 
 
 void fib(int m, int n) {
-    int seq[3] = {0, 1, 1};
-    m -= 1;
-    n -= 1;
+    double golden_ratio = (1+sqrt(5))/2;
+    double coef = 1/sqrt(5);
 
-    for (int i = 0; i <= n; i++) {
-        if (i >= 2) {
-            seq[2] = seq[0] + seq[1];
-            seq[0] = seq[1];
-            seq[1] = seq[2];
-        }
+    for (int i=m; i<=n; i++) {
+        int fib = (int)((coef * pow(golden_ratio, i-1)) + 0.5);
 
-        int cursor = 2;
-        if (i < 3) cursor = i;
-
-        if (i==m) {
-            printf("%d", seq[cursor]);
-        } else if (i > m) {
-            printf(",%d", seq[cursor]);
+        if (i < n) {
+            printf("%d,", fib);
+        } else {
+            printf("\n");
         }
     }
 }
