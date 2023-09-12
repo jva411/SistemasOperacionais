@@ -32,7 +32,8 @@ void fib(int m, int n) {
 
 
 void fork_fib(int m, int n) {
-    int step = 2;
+    int forks = 3;
+    int step = (n-m+1)/forks;
     for (int i=m; i<=n; i+=step) {
         int pid = vfork();
         if (pid == 0) {
@@ -70,7 +71,7 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    fib(m, n);
+    fork_fib(m, n);
 
     return 0;
 }
